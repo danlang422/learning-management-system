@@ -1,31 +1,47 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// Import pages when they are created
-// import Home from './pages/Home';
-// import Login from './pages/Login';
-// import Register from './pages/Register';
-// import Dashboard from './pages/Dashboard';
+// Components
+import Navbar from './components/layout/Navbar';
+import PrivateRoute from './components/routing/PrivateRoute';
+
+// Pages
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
+
+// Context
+import { AuthProvider } from './context/AuthContext';
+
+// Axios default config
+import axios from 'axios';
+
+// Set base URL for API requests
+axios.defaults.baseURL = 'http://localhost:5000';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <header className="App-header">
-          <h1>Learning Management System</h1>
-          <p>Coming soon! We're currently setting up the authentication system.</p>
-        </header>
-        <main>
-          {/* Routes will be added here in the next phase */}
-          <Routes>
-            <Route path="/" element={<div>Home Page - Coming Soon</div>} />
-            <Route path="/login" element={<div>Login Page - Coming Soon</div>} />
-            <Route path="/register" element={<div>Register Page - Coming Soon</div>} />
-            <Route path="/dashboard" element={<div>Dashboard - Coming Soon</div>} />
-          </Routes>
-        </main>
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <div className="container mt-4">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              
+              {/* Protected Routes */}
+              <Route element={<PrivateRoute />}>
+                <Route path="/dashboard" element={<Dashboard />} />
+                {/* Add more protected routes here as needed */}
+              </Route>
+            </Routes>
+          </div>
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 
