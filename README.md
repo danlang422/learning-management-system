@@ -1,104 +1,108 @@
 # Learning Management System
 
-A flexible Learning Management System with customizable workflows, built with the MERN stack (MongoDB, Express, React, Node.js).
+A flexible Learning Management System with customizable workflows for educational institutions.
 
-## Project Vision
+## Project Overview
 
-This LMS aims to provide a customizable platform for educators that goes beyond traditional learning management systems by offering:
-
-- Flexible workflow customization
-- Intuitive content creation and management
-- Robust student progress tracking
-- Future AI integration for personalized learning
-
-## Technology Stack
-
-- **Frontend**: React
-- **Backend**: Node.js with Express
-- **Database**: MongoDB
-- **Authentication**: JWT (JSON Web Tokens)
+This LMS aims to provide a comprehensive solution for managing educational content, student progress, and assessment workflows. It offers customizable features for teachers, a streamlined experience for students, and robust tools for administrators.
 
 ## Current Status
 
-This project is in the foundation phase. We are currently setting up the repository structure and implementing the authentication system.
+The project is currently in the initial development phase with the authentication system implemented and connected to MongoDB. The frontend includes user registration, login, and a basic dashboard interface.
+
+## Features Implemented
+
+- **Authentication System**
+  - User registration with role selection (teacher/student)
+  - User login with JWT authentication
+  - Protected routes for authenticated users
+  - Role-based access control
+
+- **Database Integration**
+  - MongoDB Atlas cloud database connection
+  - User, Course, and Assignment data models
+
+- **Frontend Components**
+  - Responsive navigation bar
+  - Home page with feature showcase
+  - Login and registration forms
+  - Basic dashboard interface
+  
+## Technology Stack
+
+### Frontend
+- React.js for the user interface
+- React Router for navigation
+- Context API for state management
+- Custom CSS for styling
+
+### Backend
+- Node.js runtime environment
+- Express.js framework
+- JWT for authentication
+- MongoDB for database storage
+- Mongoose ODM for data modeling
 
 ## Getting Started
 
 ### Prerequisites
-
 - Node.js (v14 or higher)
-- npm or yarn
-- MongoDB (local instance or Atlas)
+- npm (v6 or higher)
+- MongoDB Atlas account
 
 ### Installation
 
 1. Clone the repository
-   ```bash
-   git clone https://github.com/danlang422/learning-management-system.git
-   cd learning-management-system
-   ```
+```
+git clone https://github.com/danlang422/learning-management-system.git
+cd learning-management-system
+```
 
-2. Install dependencies
-   ```bash
-   # Install root dependencies
-   npm install
-   
-   # Install client dependencies
-   cd client
-   npm install
-   
-   # Install server dependencies
-   cd ../server
-   npm install
-   ```
+2. Install server dependencies
+```
+cd server
+npm install
+```
 
-3. Set up environment variables
-   - Create a `.env` file in the server directory
-   - Add the following variables:
-     ```
-     PORT=5000
-     MONGO_URI=your_mongodb_connection_string
-     JWT_SECRET=your_jwt_secret
-     ```
+3. Configure environment variables
+Create a `.env` file in the server directory with the following variables:
+```
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+JWT_EXPIRE=30d
+PORT=5000
+```
 
-4. Run the development server
-   ```bash
-   # Start the backend server
-   cd server
-   npm run dev
-   
-   # In a separate terminal, start the frontend
-   cd client
-   npm start
-   ```
+4. Install client dependencies
+```
+cd ../client
+npm install
+```
 
-## Project Roadmap
+5. Run the development servers
 
-### Phase 1: Foundation (Current)
-- [x] Select technology stack
-- [x] Establish collaboration framework
-- [x] Create basic project structure
-- [x] Set up authentication framework
-- [ ] Implement frontend authentication components
-- [ ] Connect to MongoDB database
+For the backend:
+```
+cd ../server
+npm run dev
+```
 
-### Phase 2: Core LMS Features
-- [ ] Course management
-- [ ] Basic content creation and display
-- [ ] Assignment framework
-- [ ] User dashboard
-- [ ] Student progress tracking
+For the frontend (in a new terminal):
+```
+cd ../client
+npm start
+```
 
-### Phase 3-5: Additional Features
-- Customizable workflows
-- Advanced content tools
-- AI integration
-- Analytics and more
+The application should now be running at [http://localhost:3000](http://localhost:3000)
 
-## Contributing
+## Next Steps
 
-This project is currently in early development.
+- Complete authentication flow testing
+- Implement course creation and management
+- Develop content creation tools
+- Build assignment submission system
+- Create student progress tracking
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the LICENSE file for details.
